@@ -14,10 +14,10 @@
     <div class="logoBox">
       <img src="avatar.png" alt="SIPELAN MAYA">
     </div>
-    <input type="email" name="" placeholder="user@example.com" disabled>
-    <input type="text" name="" placeholder="DISPLAY NAME">
-    <input type="password" name="" placeholder="NEW PASSWORD">
-    <button type="submit">SAVE</button>
+    <input type="email" name="email" placeholder="user@example.com" disabled>
+    <input type="text" name="name" placeholder="DISPLAY NAME">
+    <input type="password" name="password" placeholder="NEW PASSWORD">
+    <button type="submit" name="save">SAVE</button>
   </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
