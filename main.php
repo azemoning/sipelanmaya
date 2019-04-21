@@ -38,7 +38,7 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="../ProfilePage/index.html">EDIT PROFILE</a>
+                    <a href="profile.php">EDIT PROFILE</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">ROAD
