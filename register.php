@@ -50,7 +50,7 @@ if(isset($_POST['register'])){
     </div>
     <input type="email" name="username" placeholder="EMAIL ADDRESS">
     <input type="password" name="password" placeholder="PASSWORD">
-    <button type="submit">REGISTER</button>
+    <button type="submit" name="register">REGISTER</button>
   </form>
   <div class="footer-bar">
     <p>Copyright © 2019 SIPELAN MAYA. All Rights Reserved</p>
