@@ -202,7 +202,7 @@
                 <div class="modal-body">
                     <p>Are you sure you want to logout?</p>
                     <div class="actionsBtns">
-                        <form action="../LoginPage/index.html" method="post">
+                        <form action="" method="post">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             <input type="submit" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout"
                                 onclick="window.location='../LoginPage/index.html'" />
