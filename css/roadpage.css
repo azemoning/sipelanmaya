@@ -1,0 +1,41 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+html,body {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+#map{
+    height: 43%;
+}
+.dataPage{
+    height: 57%;
+    width: 100%;
+    background-color: #7386D5;
+}
+.dataForm{
+    display: block;
+    position: relative;
+    left: 350px;
+    width: 60%;
+    top: -310px;
+}
+.imageHolder{
+    padding: 1px;
+    width: 300px;
+    height: 300px;
+}
+.imageHolder img{
+    object-fit:contain;
+    height:200px; 
+    position: relative; 
+    border: 2px;
+    border-color: white;
+    top:60px;
+}
+.imageHolder input{
+    position:relative; 
+    top:130px;
+}
+.dataBox{
+    margin: 5px;
+}
