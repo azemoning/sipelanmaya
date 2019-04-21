@@ -47,7 +47,7 @@ if(isset($_POST['login'])){
 <body>
   <form class="box" action="" method="post">
     <div class="logoBox">
-      <img src="logo.png" alt="SIPELAN MAYA">
+      <img src="img/page/logo.png" alt="SIPELAN MAYA">
     </div>
     <input type="email" name="username" placeholder="EMAIL ADDRESS">
     <input type="password" name="password" placeholder="PASSWORD">
