@@ -48,8 +48,8 @@ if(isset($_POST['register'])){
     <div class="logoBox">
       <img src="img/page/logo.png" alt="SIPELAN MAYA">
     </div>
-    <input type="email" name="" placeholder="EMAIL ADDRESS">
-    <input type="password" name="" placeholder="PASSWORD">
+    <input type="email" name="username" placeholder="EMAIL ADDRESS">
+    <input type="password" name="password" placeholder="PASSWORD">
     <button type="submit">REGISTER</button>
   </form>
   <div class="footer-bar">
