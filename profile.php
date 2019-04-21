@@ -10,7 +10,7 @@
 <title>SIPELAN MAYA - Profile</title>
 </head>
 <body>
-  <form class="box" action="../MainPage/index.html" method="post">
+  <form class="box" action="" method="post">
     <div class="logoBox">
       <img src="avatar.png" alt="SIPELAN MAYA">
     </div>
