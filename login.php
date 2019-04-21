@@ -12,8 +12,7 @@ if(isset($_POST['login'])){
     
     // bind parameter ke query
     $params = array(
-        ":username" => $username,
-        ":email" => $username
+        ":username" => $username
     );
 
     $stmt->execute($params);
