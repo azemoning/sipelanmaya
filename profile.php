@@ -12,7 +12,7 @@
 <body>
   <form class="box" action="" method="post">
     <div class="logoBox">
-      <img src="avatar.png" alt="SIPELAN MAYA">
+      <img src="img/user/avatar.png" alt="SIPELAN MAYA">
     </div>
     <input type="email" name="email" placeholder="user@example.com" disabled>
     <input type="text" name="name" placeholder="DISPLAY NAME">
