@@ -1,8 +1,8 @@
 <?php
 
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
+$db_host = "sipelanmaya.mysql.database.azure.com";
+$db_user = "sipelanmaya@sipelanmaya";
+$db_pass = "@Nyb291lu23";
 $db_name = "sipm_db";
 
 try {    
