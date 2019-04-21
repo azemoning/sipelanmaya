@@ -100,7 +100,7 @@
                      var infowindowContent = [
                          ['<h3>Jalan 1</h3><br><p>Ditutup karena perbaikan jalan</p>'],
                          ['<h3>Jalan 2</h3><br><p>Ditutup karena ada hajatan warga</p>'],
-                         ['<h3>Jalan 3</h3><br><img src="jembatan.jpg" style="object-fit:contain;height:200px;"><br><p>Ditutup lur, karena jembatan ambruk <br>puter balik, cari jalan lain.</p>']
+                         ['<h3>Jalan 3</h3><br><img src="img/page/jembatan.jpg" style="object-fit:contain;height:200px;"><br><p>Ditutup lur, karena jembatan ambruk <br>puter balik, cari jalan lain.</p>']
                      ]
                      var lokasiTutup = [
                          ['Tutup',-7.961832,112.637608],
