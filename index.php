@@ -12,7 +12,7 @@
 <body onload="bukaLogin()">
 <script>
     function bukaLogin() {
-        window.location.assign("LoginPage/index.html")
+        window.location.assign("login.php")
     }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
