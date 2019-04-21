@@ -1,0 +1,76 @@
+html{
+    background: url(road.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+  }
+  .box{
+    width: 600px;
+    height: 100%;
+    padding: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+  }
+  .box input[type = "email"]::placeholder{
+    color: white;
+    font-style: italic;
+  }
+  .box input[type = "email"],.box input[type = "password"],.box input[type = "text"]{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 380px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  .box input[type = "email"]:focus,.box input[type = "password"]:focus,.box input[type = "text"]:focus{
+    border-color: #2ecc71;
+  }
+  .box button[type = "submit"]{
+    background: none;
+    width: 220px;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box button[type = "submit"]:hover{
+    border-color: #2ecc71;
+    background: #2ecc71;
+  }
+  .logoBox{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    width: 300px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+  }
+  .logoBox img{
+    object-fit: contain;
+    width: 300px;
+    height: 150px;
+  }
