@@ -79,7 +79,7 @@
                     </button>
                     <div class="geser">
                         <div class="logoIcon">
-                            <img src="rsz_1rsz_21logo.png" />
+                            <img src="img/page/mainlogo.png" />
                         </div>
                         <input id="pac-input" class="controls" placeholder="Location Search">
                     </div>
