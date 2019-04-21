@@ -204,7 +204,7 @@
                     <div class="actionsBtns">
                         <form action="logout.php" method="post">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                            <input type="submit" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout" />
+                            <input type="button" class="btn btn-default btn-primary" data-dismiss="modal" value="Logout" onclick="location.href='logout.php'"/>
                             <button class="btn btn-default" data-dismiss="modal">Cancel</button>
                         </form>
                     </div>
