@@ -44,7 +44,7 @@ if(isset($_POST['register'])){
 <title>SIPELAN MAYA - Register</title>
 </head>
 <body>
-  <form class="box" action="../LoginPage/index.html" method="post">
+  <form class="box" action="" method="post">
     <div class="logoBox">
       <img src="img/page/logo.png" alt="SIPELAN MAYA">
     </div>
