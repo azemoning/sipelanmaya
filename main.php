@@ -1,4 +1,8 @@
-<?php require_once("auth.php"); ?>
+<?php 
+require_once("auth.php"); 
+require("main.php");
+
+?>
 
 <!DOCTYPE html>
 <html>
