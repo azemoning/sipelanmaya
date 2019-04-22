@@ -1,6 +1,6 @@
 <?php 
 require_once("auth.php"); 
-require("main.php");
+require("register.php");
 
 ?>
 
