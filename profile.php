@@ -1,3 +1,55 @@
+<?php
+  require_once("config.php");
+  require_once("auth.php");
+  session_start();
+  if(isset($_POST['save'])){
+
+    // filter data yang diinputkan
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    // enkripsi password
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    
+
+    // menyiapkan query
+    $sql = "UPDATE users SET name=$name WHERE username=$user";
+    $sql2 = "UPDATE users SET password=$password WHERE username=$user";
+    $sql3 = "UPDATE users set name=$name, password=$password WHERE username=$user";
+    $stmt = $db->prepare($sql);
+    $stmt2 = $db2->prepare($sql2);
+    $stmt3 = $db2->prepare($sql3);
+
+    // bind parameter ke query
+    $params = array(
+        ":name" => $name,
+        ":password" => $password
+        
+    );
+
+    if(isset($_POST['save']) && !isset($_POST['password'])){
+      // eksekusi query untuk menyimpan ke database
+      $update = $stmt->execute($params);
+
+      // jika query simpan berhasil, maka user sudah terdaftar
+      // maka alihkan ke halaman utama
+      if($saved) header("Location: main.php");
+
+    }
+    elseif(isset($_POST['save']) && !isset($_POST['name'])){
+      // eksekusi query untuk menyimpan ke database
+      $update = $stmt2->execute($params);
+
+      // jika query simpan berhasil, maka user sudah terdaftar
+      // maka alihkan ke halaman utama
+      if($saved) header("Location: main.php");
+
+    }
+    elseif(isset($_POST['save']) && !isset($_POST['name']) && !isset($_POST['pasword'])){
+      header("Location: main.php");
+    }
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
