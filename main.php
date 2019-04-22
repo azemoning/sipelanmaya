@@ -33,7 +33,7 @@
                 <div class="avatarIcon">
                     <img src="img/user/avatar.png" alt="SIPELAN MAYA">
                 </div>
-                <p>Efti</p>
+                <p>User</p>
             </div>
 
             <ul class="list-unstyled components">
