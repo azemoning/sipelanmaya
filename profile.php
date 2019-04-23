@@ -1,6 +1,5 @@
 <?php
   require_once("config.php");
-  require_once("auth.php");
   session_start();
   if(isset($_POST['save'])){
 
@@ -8,42 +7,49 @@
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     // enkripsi password
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    
+    $id = $_SESSION["id"];
 
     // menyiapkan query
-    $sql = "UPDATE users SET name=$name WHERE username=$user";
-    $sql2 = "UPDATE users SET password=$password WHERE username=$user";
-    $sql3 = "UPDATE users set name=$name, password=$password WHERE username=$user";
-    $stmt = $db->prepare($sql);
-    $stmt2 = $db2->prepare($sql2);
-    $stmt3 = $db2->prepare($sql3);
-
+    $stmt = $db->prepare("UPDATE users set name=:name WHERE id=$id");
+    $stmt2 = $db->prepare("UPDATE users set password=:password WHERE id=$id");
+    $stmt3 = $db->prepare("UPDATE users set name=:name, password=:password WHERE id=$id");
     // bind parameter ke query
     $params = array(
         ":name" => $name,
-        ":password" => $password
-        
+    );
+    $params2 = array(
+        ":password" => $password,
+    );
+    $params3 = array(
+         ":name" => $name,
+         ":password" => $password,
     );
 
-    if(isset($_POST['save']) && !isset($_POST['password'])){
-      // eksekusi query untuk menyimpan ke database
-      $update = $stmt->execute($params);
+    if(!isset($_POST['password'])){
+    // eksekusi query untuk menyimpan ke database
+       $update = $stmt->execute($params);
 
-      // jika query simpan berhasil, maka user sudah terdaftar
-      // maka alihkan ke halaman utama
-      if($saved) header("Location: main.php");
-
-    }
-    elseif(isset($_POST['save']) && !isset($_POST['name'])){
-      // eksekusi query untuk menyimpan ke database
-      $update = $stmt2->execute($params);
-
-      // jika query simpan berhasil, maka user sudah terdaftar
-      // maka alihkan ke halaman utama
-      if($saved) header("Location: main.php");
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman utama
+       $_SESSION["name"] = $name;
+       if($update) header("Location: main.php");
 
     }
-    elseif(isset($_POST['save']) && !isset($_POST['name']) && !isset($_POST['pasword'])){
+    elseif(!isset($_POST['name'])){
+    // eksekusi query untuk menyimpan ke database
+      $update = $stmt2->execute($params2);
+
+    // jika query simpan berhasil, maka user sudah terdaftar
+    // maka alihkan ke halaman utama
+      if($update) header("Location: main.php");
+
+    }
+    elseif(isset($_POST['name']) && isset($_POST['password'])){
+      $update = $stmt3->execute($params3);
+      $_SESSION["name"] = $name;
+      if($update) header("Location: main.php");
+    }
+    else{
       header("Location: main.php");
     }
     
@@ -66,7 +72,7 @@
     <div class="logoBox">
       <img src="img/user/avatar.png" alt="SIPELAN MAYA">
     </div>
-    <input type="email" name="email" placeholder="user@example.com" disabled>
+    <input type="email" name="email" placeholder="<?= $_SESSION['username'] ?>" disabled>
     <input type="text" name="name" placeholder="DISPLAY NAME">
     <input type="password" name="password" placeholder="NEW PASSWORD">
     <button type="submit" name="save">SAVE</button>
