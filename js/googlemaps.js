@@ -4,30 +4,30 @@ var map, infoWindow;
           center: { lat: -7.966410, lng: 112.631778 },
           zoom: 16
         });
-        infoWindow = new google.maps.InfoWindow;
-        var marker = new google.maps.Marker({
-          position: new google.maps.latLng(-7.961832,112.637608),
-          title: 'Draggable Marker',
-          map: map
-          //draggable: true
-      });
+        // infoWindow = new google.maps.InfoWindow;
+      //   var marker = new google.maps.Marker({
+      //     position: new google.maps.LatLng(-7.961832,112.637608),
+      //     title: 'Draggable Marker',
+      //     map: map
+      //     //draggable: true
+      // });
     
-      // Update marker position txt.
-      updateMarkerPositionTxt(latLng);
+      // // Update marker position txt.
+      // updateMarkerPositionTxt(latLng);
     
-      // Add dragging event listeners.
-      google.maps.event.addListener(marker, 'dragstart', function() {
-          updateMarkerStateTxt('Dragging start...');
-      });
+      // // Add dragging event listeners.
+      // google.maps.event.addListener(marker, 'dragstart', function() {
+      //     updateMarkerStateTxt('Dragging start...');
+      // });
     
-      google.maps.event.addListener(marker, 'drag', function() {
-          updateMarkerStateTxt('Dragging...');
-          updateMarkerPositionTxt(marker.getPosition());
-      });
+      // google.maps.event.addListener(marker, 'drag', function() {
+      //     updateMarkerStateTxt('Dragging...');
+      //     updateMarkerPositionTxt(marker.getPosition());
+      // });
     
-      google.maps.event.addListener(marker, 'dragend', function() {
-          updateMarkerStateTxt('Drag ended');
-      });
+      // google.maps.event.addListener(marker, 'dragend', function() {
+      //     updateMarkerStateTxt('Drag ended');
+      // });
     
     
     // Onload handler to fire off the app:
