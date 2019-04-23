@@ -12,10 +12,12 @@
 <body>
 <div id="map"></div>
 <div class="dataPage">
+    <form action="" method="POST">
     <div class="imageHolder form-group">
         <img src="img/page/jembatan.jpg">
         <input type="file" class="form-control-file">
     </div>
+    </form>
     <form action="" class="dataForm" method="POST">
     <div class="row">
     <div class="labelHolder form-group col-sm">
