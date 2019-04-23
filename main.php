@@ -88,6 +88,14 @@ require_once("config.php");
                     </div>
                 </div>
             </nav>
+            <?php
+                require_once("query.php");
+                $data = new query;
+
+                $allLocations = $data->getAllLocations();
+                $allLocations = json_encode($allLocations, true);
+                echo '<div id="allLocations" style="display:none;">' . $allLocations . '</div>';
+            ?>
             <div id="map"></div>
             <script src="js/mainmaps.js"></script>
             <script
