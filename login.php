@@ -8,7 +8,9 @@ if(isset($_POST['login'])){
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     $sql = "SELECT * FROM users WHERE username=:username";
-    $stmt = $db->prepare($sql);
+    $connect = new dbconnect;
+    $connect = $connect->connect();
+    $stmt = $connect->prepare($sql);
     
     // bind parameter ke query
     $params = array(

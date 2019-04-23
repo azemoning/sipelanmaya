@@ -13,6 +13,8 @@ if(isset($_POST['register'])){
     // menyiapkan query
     $sql = "INSERT INTO users (username, password) 
             VALUES (:username, :password)";
+    $db = new dbconnect;
+    $db = $db->connect();
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query

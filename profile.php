@@ -10,6 +10,8 @@
     $id = $_SESSION["id"];
 
     // menyiapkan query
+    $db = new dbconnect;
+    $db = $db->connect();
     $stmt = $db->prepare("UPDATE users set name=:name WHERE id=$id");
     $stmt2 = $db->prepare("UPDATE users set password=:password WHERE id=$id");
     $stmt3 = $db->prepare("UPDATE users set name=:name, password=:password WHERE id=$id");
