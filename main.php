@@ -1,7 +1,5 @@
 <?php 
 require_once("auth.php"); 
-require("register.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +35,7 @@ require("register.php");
                 <div class="avatarIcon">
                     <img src="img/user/avatar.png" alt="SIPELAN MAYA">
                 </div>
-                <p>User</p>
+                <p><?= $_SESSION['name'] ?></p>
             </div>
 
             <ul class="list-unstyled components">
