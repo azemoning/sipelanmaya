@@ -37,5 +37,13 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function getRoadDataName() {
+            $userid = $_SESSION['id'];
+            $sql = "SELECT label FROM markers WHERE markers.id=$userid";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
     }
 ?>
