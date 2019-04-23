@@ -57,8 +57,21 @@
     <input type="hidden" name="lat" id="lat">
     <input type="hidden" name="lng" id="lng">
     <div class="imageHolder form-group">
-        <img src="img/page/jembatan.jpg">
-        <input type="file" id="gambar" name="gambar">
+        <script>
+            function changeimagepreview(event)
+            {
+                var reader = new FileReader();
+                reader.onload = function()
+                {
+                    var output = document.getElementById('imagepreview');
+                    output.src = reader.result;
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        
+        </script>
+        <img src="img/page/jembatan.jpg" id="imagepreview">
+        <input type="file" id="gambar" name="gambar" onchange="changeimagepreview(event)">
     </div>
     <div class="descriptionContent">
     <div class="row">
