@@ -4,47 +4,78 @@ function initMap() {
         zoom: 15,
     });
     var input = document.getElementById('pac-input');
-
+    var marker;
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);   
-    var infowindow = new google.maps.InfoWindow();                 
-     var infowindowContent = [
-         ['<h3>Jalan 1</h3><br><p>Ditutup karena perbaikan jalan</p>'],
-         ['<h3>Jalan 2</h3><br><p>Ditutup karena ada hajatan warga</p>'],
-         ['<h3>Jalan 3</h3><br><img src="img/page/jembatan.jpg" style="object-fit:contain;height:200px;"><br><p>Ditutup lur, karena jembatan ambruk <br>puter balik, cari jalan lain.</p>']
-     ]
-     var lokasiTutup = [
-         ['Tutup',-7.961832,112.637608],
-         ['Tutup',-7.965115,112.642468],
-         ['Tutup',-7.969960,112.629872]
-     ];
-     var marker,i;
-     google.maps.event.addListener(map, 'click', function(event) {
-         placeMarker(event.LatLng);
-     })
+    var infowindow = new google.maps.InfoWindow();
+    var allLocations = JSON.parse(document.getElementById('allLocations').innerHTML);
+    Array.prototype.forEach.call(allLocations, function(data){
+        var infoWindowContent = document.createElement('div');
+        var label = document.createElement('h5');
+        var descriptionParent = document.createElement('div');
+        var image = document.createElement('img');
+        var descriptionContent = document.createElement('p');
+        var footerParent = document.createElement('div');
+        var footerContent = document.createElement('p');
+        label.textContent = data.label;
+        descriptionContent.textContent = data.description;
+        image.src = `../img/user/${data.media}`;
+        descriptionParent.appendChild(image);
+        descriptionParent.appendChild(descriptionContent);
+        footerContent.textContent = `Added by : ${data.name}`;
+        footerParent.appendChild(footerContent);
+        infoWindowContent.appendChild(label);
+        infoWindowContent.appendChild(descriptionParent);
+        infoWindowContent.appendChild(footerParent);
 
-     function placeMarker(location) {
-         var marker = new google.maps.Marker({
-             position: location,
-             map: map
-         });
-     }
-     for (i=0; i < lokasiTutup.length; i++){
-          marker= new google.maps.Marker({
-              position: new google.maps.LatLng(lokasiTutup[i][1],lokasiTutup[i][2]),
-              map: map
-          });
-         google.maps.event.addListener(marker, 'click', (function(marker,i){
-             return function(){
-                 infowindow.setContent(infowindowContent[i][0]);
-                 infowindow.open(map,marker);
-             }
-         })(marker,i));
-     }
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.lat,data.lng),
+            map: map
+        });
+
+        marker.addListener('click', function(){
+            infowindow.setContent(infoWindowContent);
+            infowindow.open(map, marker);
+        });
+    });
+                 
+    //  var infowindowContent = [
+    //      ['<h3>Jalan 1</h3><br><p>Ditutup karena perbaikan jalan</p>'],
+    //      ['<h3>Jalan 2</h3><br><p>Ditutup karena ada hajatan warga</p>'],
+    //      ['<h3>Jalan 3</h3><br><img src="img/page/jembatan.jpg" style="object-fit:contain;height:200px;"><br><p>Ditutup lur, karena jembatan ambruk <br>puter balik, cari jalan lain.</p>']
+    //  ]
+    //  var lokasiTutup = [
+    //      ['Tutup',-7.961832,112.637608],
+    //      ['Tutup',-7.965115,112.642468],
+    //      ['Tutup',-7.969960,112.629872]
+    //  ];
+    //  var marker,i;
+    //  google.maps.event.addListener(map, 'click', function(event) {
+    //      placeMarker(event.LatLng);
+    //  })
+
+    //  function placeMarker(location) {
+    //      var marker = new google.maps.Marker({
+    //          position: location,
+    //          map: map
+    //      });
+    //  }
+    //  for (i=0; i < lokasiTutup.length; i++){
+    //       marker= new google.maps.Marker({
+    //           position: new google.maps.LatLng(lokasiTutup[i][1],lokasiTutup[i][2]),
+    //           map: map
+    //       });
+    //      google.maps.event.addListener(marker, 'click', (function(marker,i){
+    //          return function(){
+    //              infowindow.setContent(infowindowContent[i][0]);
+    //              infowindow.open(map,marker);
+    //          }
+    //      })(marker,i));
+    //  }
 
     autocomplete.addListener('place_changed', function () {
         infowindow.close();
-        marker.setVisible(false);
+        //marker.setVisible(false);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
             window.alert("Autocomplete's returned place contains no geometry");
