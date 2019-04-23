@@ -1,7 +1,7 @@
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -7.966410, lng: 112.631778 },
-        zoom: 14,
+        zoom: 15,
     });
     var input = document.getElementById('pac-input');
     var marker;
@@ -33,9 +33,9 @@ function initMap() {
             map: map
         });
 
-        marker.addListener('click', function(){
+        google.maps.event.addListener(marker,'click', function(){
             infowindow.setContent(infoWindowContent);
-            infowindow.open(map, marker);
+            infowindow.open(map, this);
         });
     });
     autocomplete.addListener('place_changed', function () {
