@@ -54,15 +54,14 @@
 
     $db = new dbconnect;
     $db = $db->connect();
-    $stmt = $db->prepare("UPDATE markers SET label=:label, description=:description, lat=:lat, lng=:lng, media=:media WHERE id_location=:id_location");
+    $stmt = $db->prepare("UPDATE markers SET label=:label, description=:description, lat=:lat, lng=:lng WHERE id_location=:id_location");
     $params = array(
         ":id_location" => $id_location,
         ":lat" => $lat,
         ":lng" => $lng,
         ":label" => $label,
-        ":description" => $description,
-        ":media" => $media
-    
+        ":description" => $description
+        
     );
     $insertLocation = $stmt->execute($params);
     if($insertLocation) header("Location: main.php");
