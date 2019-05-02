@@ -52,15 +52,16 @@ require_once("config.php");
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
                                     class="fa fa-plus"></i></a>
                         </li>
-                        <li>
-                            <a href="#">Road 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Road 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Road 3</a>
-                        </li>
+                        <?php
+                            require_once("query.php");
+                            $data = new query;
+                            $allRoadName = $data->getRoadDataName();
+                            $allRoadName = json_encode($allRoadName, true);
+                            echo '<div id="allRoadName" style="display:none;">' . $allRoadName . '</div>';
+                        
+                        ?>
+                        <script src=js/roadname.js></script>
+                        
                     </ul>
                 </li>
             </ul>

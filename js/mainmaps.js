@@ -20,6 +20,9 @@ function initMap() {
         label.textContent = data.label;
         descriptionContent.textContent = data.description;
         image.src = `../img/user/${data.media}`;
+        image.style.objectFit="contain";
+        image.style.height="200px";
+        footerContent.style.fontWeight="bold";
         descriptionParent.appendChild(image);
         descriptionParent.appendChild(descriptionContent);
         footerContent.textContent = `Added by : ${data.name}`;

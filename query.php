@@ -39,10 +39,18 @@
 
         public function getRoadDataName() {
             $userid = $_SESSION['id'];
-            $sql = "SELECT label FROM markers WHERE markers.id=$userid";
+            $sql = "SELECT label, id_location FROM markers WHERE markers.id=$userid";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function getSpecifiedRoad() {
+            $id_location = $_GET['id_location'];
+            $sql = "SELECT * FROM markers WHERE markers.id_location=$id_location";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
     }
